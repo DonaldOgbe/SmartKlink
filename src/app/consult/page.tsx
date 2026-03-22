@@ -5,11 +5,10 @@ import { useState } from "react";
 import UserInfoStep from "./steps/UserInfoStep";
 import ChatStep from "./steps/ChatStep";
 import DoctorReportStep from "./steps/DoctorsReportStep";
-import PrescriptionStep from "./steps/PrescriptionStep";
+import PaymentStep from "./steps/PaymentStep";
 import {
   FormData,
   Message,
-  Prescription,
   Location,
   Pharmacy,
   ConsultationResult,
@@ -21,7 +20,7 @@ const steps = [
   { title: "Chat with a doctor", component: ChatStep },
   { title: "Doctor's Report", component: DoctorReportStep },
   { title: "Find a pharmacy", component: PharmacyStep },
-  { title: "Get your prescription", component: PrescriptionStep },
+  { title: "Pay for Prescription and Medication", component: PaymentStep },
 ];
 
 export default function ConsultPage() {
@@ -47,8 +46,6 @@ export default function ConsultPage() {
   const [consultationResult, setConsultationResult] =
     useState<ConsultationResult | null>(null);
 
-  // prescription
-  const [prescription, setPrescription] = useState<Prescription | null>(null);
   const [loadingPrescription, setLoadingPrescription] = useState(false);
 
   // pharmacies
@@ -72,10 +69,7 @@ export default function ConsultPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            messages: messages.map((msg) => ({
-              role: msg.sender === "user" ? "user" : "assistant",
-              content: msg.text,
-            })),
+            messages: messages
           }),
         });
         const data = await res.json();
@@ -85,21 +79,6 @@ export default function ConsultPage() {
         console.error(err);
       }
       setLoadingPrescription(false);
-      return;
-    }
-
-    // Step 5 (Payment) → Step 6 (Prescription): unlock full details
-    if (currentStep === 4) {
-      if (!consultationResult) return;
-
-      const full: Prescription = {
-        ...consultationResult,
-        instructions:
-          consultationResult.instructions ?? "Follow doctor's guidance.",
-      };
-
-      setPrescription(full);
-      setCurrentStep((prev) => prev + 1);
       return;
     }
 
@@ -128,7 +107,6 @@ export default function ConsultPage() {
         messages={messages}
         setMessages={setMessages}
         consultationResult={consultationResult}
-        prescription={prescription}
         selectedLocation={selectedLocation}
         setSelectedLocation={setSelectedLocation}
         selectedPharmacy={selectedPharmacy}

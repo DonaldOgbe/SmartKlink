@@ -1,4 +1,3 @@
-// components/consult/steps/PrescriptionStep.tsx
 "use client";
 
 import { FormData, Prescription, Medication } from "@/types/consult";

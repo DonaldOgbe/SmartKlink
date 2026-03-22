@@ -8,12 +8,12 @@ export interface FormData {
   age: string;
   gender: string;
   hasInsurance: false;
-  insuranceProvider: ""; // now controlled list
+  insuranceProvider: "" | "NHIA"; // now controlled list
   insuranceId: "";
 }
 
 export interface Message {
-  sender: "user" | "doctor";
+  sender: "user" | "assistant";
   text: string;
 }
 
@@ -26,7 +26,6 @@ export interface Medication {
 export interface Doctor {
   name: string;
 }
-
 
 export type Location = {
   state: string;
@@ -62,3 +61,14 @@ export interface ConsultationResult extends BaseConsultation {
 export interface Prescription extends BaseConsultation {
   instructions: string; // required now
 }
+
+export type PaymentPayload = {
+  email: string;
+  amount: number;
+};
+
+export type PaystackPayload = {
+  authorization_url: string;
+  reference: string;
+  access_code: string;
+};
