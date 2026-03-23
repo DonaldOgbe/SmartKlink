@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Location, Pharmacy } from "@/types/consult";
+import Image from "next/image";
 
 type Props = {
   selectedLocation: Location | null;
@@ -123,11 +124,12 @@ export default function PharmacyStep({
                       : "border-gray-100 hover:border-gray-200 hover:shadow-sm"
                   }`}>
                   {/* Image placeholder */}
-                  <div className="w-14 h-14 rounded-xl bg-blue-50 flex-shrink-0 overflow-hidden">
-                    <img
+                  <div className="relative w-14 h-14 rounded-xl bg-blue-50 flex-shrink-0 overflow-hidden">
+                    <Image
                       src={pharm.imageUrl}
                       alt={pharm.name}
-                      className="w-full h-full object-cover"
+                      className="object-cover"
+                      fill
                       onError={(e) => {
                         // fallback if image missing
                         (e.target as HTMLImageElement).style.display = "none";

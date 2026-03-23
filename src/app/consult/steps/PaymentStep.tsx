@@ -1,6 +1,7 @@
 "use client";
 
-import { FormData, ConsultationResult, Pharmacy} from "@/types/consult";
+import { FormData, ConsultationResult, Pharmacy } from "@/types/consult";
+import Image from "next/image";
 
 type PaymentPayload = {
   email: string;
@@ -54,7 +55,6 @@ export default function PaymentStep({
         return;
       }
 
-      
       sessionStorage.setItem(
         "consultData",
         JSON.stringify({
@@ -71,7 +71,6 @@ export default function PaymentStep({
         sessionStorage.getItem("consultData"),
       );
 
-      
       window.location.href = data.authorization_url;
     } catch (err) {
       console.error("[handlePaystack]", err);
@@ -141,8 +140,17 @@ export default function PaymentStep({
       {/* PAYSTACK BUTTON */}
       <button
         onClick={handlePaystack}
-        className="w-full py-4 rounded-xl bg-[#0059cd] hover:bg-[#0048a8] active:scale-[0.98] transition-all duration-200 text-white font-semibold text-base shadow-md shadow-blue-200">
-        Pay ₦{finalTotal.toLocaleString()} with Paystack
+        className="w-full py-4 rounded-xl bg-white hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 border border-gray-200 shadow-sm flex items-center justify-center gap-3">
+        <Image
+          src="/paystack_logo.jpeg"
+          alt="Paystack"
+          width={28}
+          height={28}
+          className="rounded-md"
+        />
+        <span className="font-semibold text-gray-800 text-base">
+          Pay ₦{finalTotal.toLocaleString()} with Paystack
+        </span>
       </button>
 
       <p className="text-xs text-center text-gray-400">

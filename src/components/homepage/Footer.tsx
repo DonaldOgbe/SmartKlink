@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const links = {
@@ -31,8 +32,10 @@ export default function Footer() {
             <Link href="/">
               <div className="flex items-center gap-2.5 cursor-pointer group w-fit">
                 <div className="w-9 h-9 rounded-xl bg-[#0059cd] flex items-center justify-center shadow-md shadow-[#0059cd]/40 group-hover:scale-105 transition-transform">
-                  <img
+                  <Image
                     src="/smartklinik_logo.png"
+                    width={20}
+                    height={20}
                     alt="SmartKlinik Logo"
                     className="w-5 h-5 object-contain brightness-0 invert"
                   />
