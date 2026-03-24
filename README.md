@@ -25,4 +25,5 @@ SmartKilnik is a digital healthcare platform that enables users to consult a doc
 https://smart-klink.vercel.app/
 
 ## Author
-Your Name
+Donald Ebimobowei Ogbe
+
