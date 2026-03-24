@@ -16,7 +16,7 @@ import {
 import PharmacyStep from "./steps/PharmacyStep";
 
 const steps = [
-  { title: "Tell us about your symptoms", component: UserInfoStep },
+  { title: "Tell us a little bit about yourself", component: UserInfoStep },
   { title: "Chat with a doctor", component: ChatStep },
   { title: "Doctor's Report", component: DoctorReportStep },
   { title: "Find a pharmacy", component: PharmacyStep },

@@ -105,7 +105,7 @@ export default function ConsultLayout({
             {/* Continue */}
             <button
               onClick={onNext}
-              disabled={loadingPrescription}
+              disabled={loadingPrescription || isLast}
               className="flex-1 sm:flex-none sm:min-w-[160px] py-3 px-8 rounded-xl bg-[#0059cd] hover:bg-[#0048a8] active:scale-[0.98] transition-all duration-200 text-white font-semibold text-sm shadow-md shadow-blue-200 disabled:opacity-60 disabled:cursor-not-allowed">
               {loadingPrescription
                 ? "Generating..."

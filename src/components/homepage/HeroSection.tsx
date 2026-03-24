@@ -61,7 +61,7 @@ export default function HeroSection() {
               {"Get Started — It's Free"}
             </button>
           </Link>
-          <Link href="/how-it-works">
+          <Link href="/consult">
             <button className="px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-2xl backdrop-blur-sm hover:bg-white/20 active:scale-95 transition-all duration-200 text-sm sm:text-base">
               See How It Works →
             </button>

@@ -44,7 +44,7 @@ export default function Navbar() {
           {["About", "How it works", "Contact"].map((label) => (
             <Link
               key={label}
-              href={`/${label.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/`}
               className="px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-[#0059cd] hover:bg-[#0059cd]/8 transition-all duration-200">
               {label}
             </Link>

@@ -54,7 +54,7 @@ export default function Footer() {
 
             {/* Social icons */}
             <div className="flex gap-3 mt-1">
-              {["twitter", "instagram", "linkedin"].map((platform) => (
+              {["twitter", "github", "linkedin"].map((platform) => (
                 <a
                   key={platform}
                   href={`https://${platform}.com`}
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {Object.entries(links).map(([category, items]) => (
+          {Object.entries(links).map(([category, items]: [string, string[]]) => (
             <div key={category}>
               <p className="text-white/35 text-[0.65rem] font-bold uppercase tracking-widest mb-5">
                 {category}
@@ -80,7 +80,7 @@ export default function Footer() {
                 {items.map((item) => (
                   <li key={item}>
                     <Link
-                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={`/`}
                       className="text-white/55 hover:text-white text-sm transition-colors duration-200">
                       {item}
                     </Link>
