@@ -22,7 +22,7 @@ SmartKilnik is a digital healthcare platform that enables users to consult a doc
 5. Makes payment
 
 ## Demo
-(Add your hosted link)
+https://smart-klink.vercel.app/
 
 ## Author
 Your Name
